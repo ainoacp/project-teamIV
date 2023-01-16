@@ -23,7 +23,7 @@ const isAuth = (req, res, next) => {
   
 };
 
-const isTeacher = (req, res, next) => {
+const isTeacher = async (req, res, next) => {
      try {
        console.log(req.headers);
        const authorization = req.headers.authorization;
@@ -39,7 +39,7 @@ const isTeacher = (req, res, next) => {
       
        const tokenVerified = verifySign(token);
        req._user = tokenVerified;
-       const user = User.findById(tokenVerified.id)
+       const user = await User.findById(tokenVerified.id)
 
        if(user.role !== 'teacher'){
          return res.status(401).json({ message: "Unauthorized" });
