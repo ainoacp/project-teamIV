@@ -6,15 +6,20 @@ const {
     deleteRoom
 } = require('../controllers/rooms.controller');
 
+const {
+    isAuth, 
+    isTeacher
+} = require('../../middleware/auth');
+
 const roomsRouter = express.Router();
 
-roomsRouter.post('/', postRoom);
+roomsRouter.post('/', [isTeacher], postRoom);
 
 roomsRouter.get('/', getRooms);
 
-roomsRouter.put('/:id', putRoom);
+roomsRouter.put('/:id', [isTeacher], putRoom);
 
-roomsRouter.delete('/:id', deleteRoom);
+roomsRouter.delete('/:id', [isAuth], deleteRoom);
 
 
 module.exports = roomsRouter;

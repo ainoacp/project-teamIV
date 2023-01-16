@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const generateSign = (id, email) => {
-    return jwt.sign({id,email}, process.env.JWT_KEY, {expiresIn: '5m'});
+    return jwt.sign({id,email}, process.env.JWT_KEY, {expiresIn: '15m'});
 }
 
 const verifySign = (token) => {
@@ -9,3 +9,5 @@ const verifySign = (token) => {
 }
 
 module.exports ={generateSign, verifySign};
+
+//https://www.lastpass.com/es/features/password-generator

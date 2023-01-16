@@ -1,7 +1,6 @@
 {
   "name": "project-teamiv",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -21,5 +20,14 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ainoacp/project-teamIV.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ainoacp/project-teamIV/issues"
+  },
+  "homepage": "https://github.com/ainoacp/project-teamIV#readme",
+  "description": ""
 }

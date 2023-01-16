@@ -6,15 +6,21 @@ const {
     deleteSubject
 } = require('../controllers/subjects.controller');
 
+const {
+    isAuth, 
+    isTeacher
+} = require('../../middleware/auth');
+
+
 const subjectsRouter = express.Router();
 
-subjectsRouter.post('/', postSubject);
+subjectsRouter.post('/', [isTeacher], postSubject);
 
 subjectsRouter.get('/', getSubjects);
 
-subjectsRouter.put('/:id', putSubject);
+subjectsRouter.put('/:id', [isAuth], putSubject);
 
-subjectsRouter.delete('/:id', deleteSubject);
+subjectsRouter.delete('/:id', [isAuth], deleteSubject);
 
 
 module.exports = subjectsRouter;
